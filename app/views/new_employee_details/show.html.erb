@@ -43,3 +43,5 @@
   <strong>About Yourself :</strong>
   <%= @employee_details.about_yourself %>
 </p>
+
+<%= cl_image_tag( @employee_details.image_path , :width => 90, :height => 130,  :crop => :fill, :gravity => :north_west) %>

@@ -8,9 +8,13 @@ def new
 
 def create
 	 # render plain: params[:new_employee_details].inspect
-#byebug
-	 @employee_details = NewEmployeeDetail.new(new_employee_details_params)
- 
+byebug
+result = Cloudinary::Uploader.upload('/Users/PassionToTravel/Documents/KTjoyGR8c.png');
+
+
+	@employee_details = NewEmployeeDetail.new(new_employee_details_params)
+
+ @employee_details.image_path = result["public_id"]
   @employee_details.save
   redirect_to @employee_details
   end
