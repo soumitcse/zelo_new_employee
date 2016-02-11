@@ -1,6 +1,8 @@
 
 
-<%= form_for :new_employee_details, url: new_employee_details_path  , :methord => :post do |f| %>
+
+
+<%= form_for :new_employee_details, url: new_employee_details_path  , :method => :post do |f| %>
 <!-- rails generate model New_employee_details name:string   image_path:string location:string qualification:string college:string organization:string department:string role:string hobbies:text dob:date about_yourself:text -->
 
 
@@ -16,12 +18,7 @@
  
  <p>
     <%= f.label :image_path %><br>
-    <%= f.text_field :image_path , class: "create_input"%>
-
-
-   
-    <!-- <%= file_field(:attachment, :file, class: 'file_input') %> -->
-     <!-- file_field 'image_path', 'datafile' -->
+      <%= cl_image_upload_tag(:image_path) %>
   </p>
 
 
@@ -60,7 +57,7 @@
 
   <p>
     <%= f.label :dob %><br>
-    <%= f.text_field :dob %>
+    <%= f.text_field :dob  %>
   </p>
 
   <p>
@@ -69,11 +66,11 @@
   </p>
 
 
-
  
   <p>
     <%= f.submit %>
   </p>
+
 
 
 <% end %>

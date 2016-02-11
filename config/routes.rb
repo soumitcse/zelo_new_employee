@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :new_employee_details
   root 'welcome#index'
 
+  # get 'new_employee_details/show/:id' => 'new_employee_details#show', as: 'show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

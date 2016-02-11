@@ -3,13 +3,14 @@
   <%= @employee_details.zolo_id %>
 </p>
  
+
 <p>
   <strong>Name:</strong>
   <%= @employee_details.name %>
 </p>
 <p>
   <strong>Image Path:</strong>
-  <%= @employee_details.image_path %>
+  <%= cl_image_tag(@employee_details.image_path, :crop => :fill, :width => 120, :height => 80) %>
 </p>
 <p>
   <strong>Location:</strong>
@@ -44,4 +45,18 @@
   <%= @employee_details.about_yourself %>
 </p>
 
-<%= cl_image_tag( @employee_details.image_path , :width => 90, :height => 130,  :crop => :fill, :gravity => :north_west) %>
+<table>
+  <tr>
+    <th>Zolo Id</th>
+    <th>Employee Name</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @employee_details_all.each do |employee_details| %>
+    <tr>
+      <td><%= employee_details.zolo_id %></td>
+      <td><%= employee_details.name %></td>
+     <td><%= link_to 'Show', new_employee_details_path(employee_details) %></td>
+    </tr>
+  <% end %>
+</table>

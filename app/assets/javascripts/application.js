@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
 //= require jquery
 //= require jquery_ujs
+
+//= require jquery-2.2.0.min
+//= require cloudinary 
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.cloudinary 
+
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
+

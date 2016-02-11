@@ -1,20 +1,30 @@
 class NewEmployeeDetailsController < ApplicationController
+
 def show
+    @employee_details_all = NewEmployeeDetail.all
     @employee_details = NewEmployeeDetail.find(params[:id])
   end
 
 def new
   end
 
+
+
 def create
-	 # render plain: params[:new_employee_details].inspect
-byebug
-result = Cloudinary::Uploader.upload('/Users/PassionToTravel/Documents/KTjoyGR8c.png');
+	 
+# byebug
+@employee_details = NewEmployeeDetail.new(new_employee_details_params)
+if params[:image_path].present?
+  preloaded = Cloudinary::PreloadedFile.new(params[:image_path])         
+  raise "Invalid upload signature" if !preloaded.valid?
+  @employee_details.image_path = preloaded.identifier
+end
+ 
+ 
 
+	
 
-	@employee_details = NewEmployeeDetail.new(new_employee_details_params)
-
- @employee_details.image_path = result["public_id"]
+ #@employee_details.image_path = result["public_id"]
   @employee_details.save
   redirect_to @employee_details
   end
