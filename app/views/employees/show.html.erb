@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zoloid:</strong>
+  <%= @employee.zoloid %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @employee.code_digest %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

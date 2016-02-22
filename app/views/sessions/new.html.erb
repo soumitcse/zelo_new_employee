@@ -1,0 +1,37 @@
+<div>
+<% if flash[:alert] %>
+	<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+			<div class="jumbotron vertical-center">
+				<div class="float-container">
+				<%= form_tag do %>
+					<fieldset>
+						
+						 <h2><center>Please Log in</center></h2>
+							<div class="form-group">
+								<%= text_field_tag :name, params[:name] ,:class => "form-control" , :placeholder =>"Username" %>
+							</div>
+							<div class="form-group">
+								<%= password_field_tag :password, params[:password] ,:class => "form-control" , :placeholder =>"Password" %>
+							</div>
+						<div class="form-group">
+							<%= submit_tag "Login" ,:class => "btn btn-primary" %>
+						</div>
+					</fieldset>
+				<% end %>
+				</div>
+			</div>
+
+	</div>
+  <div class="col-md-3"></div>
+
+</div>
+
+
+</div>
+

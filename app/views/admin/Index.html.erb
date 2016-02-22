@@ -1,0 +1,15 @@
+<%= form_for(@employee) do |f| %>
+<div> <h3>Generate New Employee Code</h3></div>
+  <div class="field">
+    <%= f.label :zoloid %><br>
+    <%= f.text_field :zoloid %>
+  </div>
+  <div class="field">
+   
+    <%= f.hidden_field :code_digest %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

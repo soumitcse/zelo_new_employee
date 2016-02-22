@@ -1,8 +1,28 @@
 Rails.application.routes.draw do
 
+  # get 'admin/Index'
+
+  # get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  resources :employees
+  resources :users
   resources :new_employee_details
   root 'welcome#index'
 
+  get 'admin'=> 'admin#Index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+
+get 'authenticate_employee' => 'new_employee_details#authemployees' , as: :authemployees
   # get 'new_employee_details/show/:id' => 'new_employee_details#show', as: 'show'
 
   # The priority is based upon order of creation: first created -> highest priority.

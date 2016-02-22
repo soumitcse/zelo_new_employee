@@ -1,0 +1,94 @@
+
+<%= cloudinary_js_config %>
+
+
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+<div class="jumbotron">
+  <% if @empid.present? %>
+      <%= form_for :new_employee_details, url: new_employee_details_path  , :method => :post do |f| %>
+      <!-- rails generate model New_employee_details name:string   image_path:string location:string qualification:string college:string organization:string department:string role:string hobbies:text dob:date about_yourself:text -->
+      <div>
+          <%= f.text_field :zolo_id  , :value => @empid %>
+           <%= f.text_field :name  , :placeholder => "Name"%>
+      </div>
+
+          <%= f.label :image_path %><br>
+            <%= f.cl_image_upload :image_path %>
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail preview ">
+                   <div class="image_public_id"></div>
+                </a>
+              </div>
+            </div> 
+
+
+      <div>
+         <%= f.text_field :location  , :placeholder => "Location" %>
+         <%= f.text_field :qualification  , :placeholder => "Qualification"%>
+      </div>
+
+      <div>
+        <%= f.text_field :college  , :placeholder => "College" %>
+         <%= f.text_field :organization  , :placeholder => "Organization" %>
+      </div>
+
+      <div>
+        <%= f.text_field :department  , :placeholder => "Department"%>
+         <%= f.text_field :role  , :placeholder => "Role" %>
+      </div>
+      <div>
+         <%= f.text_area :hobbies  , :placeholder => "Hobbies" %>
+          <%= f.text_field :dob  , :placeholder => "Date of Birth" %>
+      </div>
+      
+
+        <p>
+          
+          <%= f.text_area :about_yourself  , :placeholder => "About Yourself"%>
+        </p>
+
+
+       
+        <p>
+          <%= f.submit :id => "submit" ,:class => "btn btn-default" %>
+        </p>
+
+
+
+  <% end %>
+  <% elsif %>
+  <h3> Wrong Code</h3>
+<% end %>
+
+</div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+$('#submit').hide();
+
+$('.cloudinary-fileupload').bind('fileuploadfail', function(e , data) {
+   $(this).show();
+   $('#submit').hide();
+
+  });
+
+$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
+       $.cloudinary.image(data.result.public_id, 
+           { format: data.result.format, version: data.result.version, 
+             crop: 'scale', width: 200 }));    
+       $('.image_public_id').val(data.result.public_id);   
+
+
+      $(this).hide();
+      $('#submit').show();
+
+  return true;
+});
+
+</script>

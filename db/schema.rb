@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130032035) do
+ActiveRecord::Schema.define(version: 20160222114349) do
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "zoloid"
+    t.string   "code_digest"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "new_employee_details", force: :cascade do |t|
     t.string   "zolo_id"
@@ -28,6 +35,13 @@ ActiveRecord::Schema.define(version: 20160130032035) do
     t.text     "about_yourself"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Image Path:</strong>
-  <%= cl_image_tag(@employee_details.image_path, :crop => :fill, :width => 120, :height => 80) %>
+  <%= cl_image_tag(@employee_details.image_path, :crop => :fill, :gravity => :face, :width => 120, :height => 80) %>
 </p>
 <p>
   <strong>Location:</strong>
@@ -45,7 +45,7 @@
   <%= @employee_details.about_yourself %>
 </p>
 
-<table>
+<!-- <table>
   <tr>
     <th>Zolo Id</th>
     <th>Employee Name</th>
@@ -56,7 +56,9 @@
     <tr>
       <td><%= employee_details.zolo_id %></td>
       <td><%= employee_details.name %></td>
+
+<td><%= employee_details.image_path %></td>
      <td><%= link_to 'Show', new_employee_details_path(employee_details) %></td>
     </tr>
   <% end %>
-</table>
+</table> -->
