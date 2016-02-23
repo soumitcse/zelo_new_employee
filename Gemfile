@@ -41,6 +41,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 
+gem 'roadie'
+
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 

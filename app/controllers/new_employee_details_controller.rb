@@ -16,6 +16,9 @@ end
 def show
     @employee_details_all = NewEmployeeDetail.all
     @employee_details = NewEmployeeDetail.find(params[:id])
+    
+    # @zoloid = @employee_details.zolo_id
+     NewsletterMailer.weekly("soumitcse@zelo.in", @employee_details.zolo_id , @employee_details.name , params[:id] ).deliver
   end
 
 def new
@@ -37,6 +40,9 @@ def create
 # @employee_details = NewEmployeeDetail.new(new_employee_details_params)	
  
   @employee_details.save
+
+ 
+
    redirect_to @employee_details
 
 
