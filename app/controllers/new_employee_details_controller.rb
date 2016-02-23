@@ -1,7 +1,7 @@
 class NewEmployeeDetailsController < ApplicationController
-
+skip_before_action :authorize
 def authemployees
-  byebug
+  # byebug
 
    # @projects = Employee.find(params[:search])
    # @x = Employee.find_by code_digest: 'eiqj5bty0'

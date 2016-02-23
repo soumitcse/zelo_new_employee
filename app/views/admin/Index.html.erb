@@ -1,15 +1,35 @@
-<%= form_for(@employee) do |f| %>
-<div> <h3>Generate New Employee Code</h3></div>
-  <div class="field">
-    <%= f.label :zoloid %><br>
-    <%= f.text_field :zoloid %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jumbotron">
+      <div class="col-md-4 col-md-offset-10"><%= image_tag "zelo.png"  , size: "100x50" %></div>
+      </br>
+      <%= form_for(@employee) do |f| %>
+      <div> <h2><center>Generate New Employee Code</center></h2></div>
+        <div class="form-group">
+          
+          <%= f.text_field :zoloid , :class => "form-control",:placeholder => "Please Enter New Employee Id" , :onkeyup =>"caps(this)"%>
+        </div>
+
+        <div class="form-group"> 
+          <%= f.hidden_field :code_digest , :class => "form-control"%>
+        </div>
+        
+        <div class="actions">
+          <center> <%= f.submit :id => "submit" ,:class => "btn btn-primary" %></center>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-   
-    <%= f.hidden_field :code_digest %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+
+<script>
+
+function caps(element){
+
+    element.value = element.value.toUpperCase();
+
+}
+
+</script>

@@ -1,12 +1,42 @@
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-<div class="jumbotron">
-   <%= form_tag("/authenticate_employee", method: "get") do %>
-      <%= label_tag(:code, "Enter the Code Recieved") %>
-      <%= text_field_tag(:code) %>
-      <%= submit_tag("Search") %>
-    <% end %>
+</br>
+</br>
+</br>
+    <div class="col-md-8 col-md-offset-2">
+		<div class="jumbotron">
+			<center><%= image_tag "zelo.png"  %></center>
+		</br>
+		<h3>
+			Congratulations for being a part of our team! Our whole team welcomes a new employee like you. We are looking forward for the company’s success with you. 
+			<h2><center>Welcome aboard!</center></h2>
+		</h3>
+		</br>
+		   <%= form_tag("/authenticate_employee", method: "get") do %>
+		   	<div><center>
+		      <%= label_tag(:code, "Enter the Code Recieved  :") %>
+		      <%= text_field_tag(:code) %>
+		      </center>
+		    </div>
+		</br>
+		    <div>
+		    	<center>
+		      <%= submit_tag "Enter" , class: "btn btn-primary" %>
+		      </center>
+		    </div>
+		   <% end %>
 
+		</div>
+	</div>
 </div>
-</div>
-</div>
+
+</script>
+
+<script>
+
+function caps(element){
+
+    element.value = element.value.toUpperCase();
+
+}
+
+</script>

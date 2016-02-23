@@ -7,53 +7,70 @@
     <div class="col-md-10 col-md-offset-1">
 <div class="jumbotron">
   <% if @empid.present? %>
+    <h2><center>Welcome to  <%= image_tag "zelo.png" %></center></h2>
+    <h5>Please Fill this forum !</h5>
       <%= form_for :new_employee_details, url: new_employee_details_path  , :method => :post do |f| %>
       <!-- rails generate model New_employee_details name:string   image_path:string location:string qualification:string college:string organization:string department:string role:string hobbies:text dob:date about_yourself:text -->
-      <div>
-          <%= f.text_field :zolo_id  , :value => @empid %>
-           <%= f.text_field :name  , :placeholder => "Name"%>
-      </div>
-
-          <%= f.label :image_path %><br>
+      <div class="row">
+       <div class="col-md-6 form-group" >
+        <p>
+           <%= f.text_field :zolo_id  , :value => @empid , :class => "form-control" ,:readonly => true%>
+        </p>
+        <p>
+          <%= f.text_field :name  , :placeholder => "Name" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+        </p>
+        <p>
+           <%= f.text_field :dob  , :placeholder => "Date of Birth" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+        </p>
+          
+        <p>
+          <%= f.text_field :location  , :placeholder => "Location" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+         </p>
+        <p>
+          <%= f.text_field :qualification  , :placeholder => "Qualification" , :class => "form-control" , :onkeyup =>"caps(this)" %>
+        </p>
+        <p>
+          <%= f.text_field :college  , :placeholder => "College" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+        </p>
+         <p>
+          <%= f.text_field :organization  , :placeholder => "Organization" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+         </p>
+         <p>
+          <%= f.text_field :department  , :placeholder => "Department" , :class => "form-control", :onkeyup =>"caps(this)" %>
+         </p>
+         <p>
+          <%= f.text_field :role  , :placeholder => "Role" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+         </p>
+         
+        
+         
+        </div>
+        <div class="col-md-6">
+          <h4>Please Upload Your Photo</h4>
             <%= f.cl_image_upload :image_path %>
             <div class="row">
-              <div class="col-xs-6 col-md-3">
+              <div >
                 <a href="#" class="thumbnail preview ">
                    <div class="image_public_id"></div>
                 </a>
               </div>
             </div> 
-
-
-      <div>
-         <%= f.text_field :location  , :placeholder => "Location" %>
-         <%= f.text_field :qualification  , :placeholder => "Qualification"%>
+          </div>
       </div>
-
-      <div>
-        <%= f.text_field :college  , :placeholder => "College" %>
-         <%= f.text_field :organization  , :placeholder => "Organization" %>
-      </div>
-
-      <div>
-        <%= f.text_field :department  , :placeholder => "Department"%>
-         <%= f.text_field :role  , :placeholder => "Role" %>
-      </div>
-      <div>
-         <%= f.text_area :hobbies  , :placeholder => "Hobbies" %>
-          <%= f.text_field :dob  , :placeholder => "Date of Birth" %>
-      </div>
-      
-
+        
+        <p>
+            <%= f.text_area :hobbies  , :placeholder => "Hobbies" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+        </p>
+     
         <p>
           
-          <%= f.text_area :about_yourself  , :placeholder => "About Yourself"%>
+          <%= f.text_area :about_yourself  , :placeholder => "About Yourself" , :class => "form-control" , :onkeyup =>"caps(this)"%>
         </p>
 
 
        
         <p>
-          <%= f.submit :id => "submit" ,:class => "btn btn-default" %>
+         <center> <%= f.submit :id => "submit" ,:class => "btn btn-primary" %></center>
         </p>
 
 
@@ -81,7 +98,7 @@ $('.cloudinary-fileupload').bind('fileuploadfail', function(e , data) {
 $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.preview').html(
        $.cloudinary.image(data.result.public_id, 
            { format: data.result.format, version: data.result.version, 
-             crop: 'scale', width: 200 }));    
+             crop: 'scale', width: 300 }));    
        $('.image_public_id').val(data.result.public_id);   
 
 
@@ -92,3 +109,14 @@ $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  $('.prev
 });
 
 </script>
+
+<script>
+
+function caps(element){
+
+    element.value = element.value.toUpperCase();
+
+}
+
+</script>
+
