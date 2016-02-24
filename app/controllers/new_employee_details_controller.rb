@@ -28,7 +28,7 @@ def new
 
 
 def create
-  
+  byebug
 	 @employee_details = NewEmployeeDetail.new(new_employee_details_params)  
 
   if @employee_details[:image_path].present?
