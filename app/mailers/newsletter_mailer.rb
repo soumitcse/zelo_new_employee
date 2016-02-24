@@ -5,12 +5,16 @@ class NewsletterMailer < ApplicationMailer
   #
   #   en.newsletter_mailer.weekly.subject
   #
-  def weekly(email , zoloid , name , id)
-    @greeting = "Hi"
-    @zoloid = zoloid
-    @name = name
-    @id = id
+  def weekly(email , subj , key1 , value1 , key2 , value2 , key3 , value3  )
+
+    @key1 = key1 
+    @value1 = value1
+    @key2 = key2
+    @value2 = value2
+    @key3 = key3
+    @value3 = value3
+    
     # mail to: "to@example.org"
-    mail to: email, subject: "New Employee Onboard"
+    mail to: email, subject: subj
   end
 end

@@ -9,37 +9,37 @@
   <% if @empid.present? %>
     <h2><center>Welcome to  <%= image_tag "zelo.png" %></center></h2>
     <h5>Please Fill this forum !</h5>
-      <%= form_for :new_employee_details, url: new_employee_details_path  , :method => :post do |f| %>
+      <%= form_for :new_employee_details, url: new_employee_details_path  , :method => :post   do |f| %>
       <!-- rails generate model New_employee_details name:string   image_path:string location:string qualification:string college:string organization:string department:string role:string hobbies:text dob:date about_yourself:text -->
-      <div class="row">
+      <div class="row">  
        <div class="col-md-6 form-group" >
         <p>
            <%= f.text_field :zolo_id  , :value => @empid , :class => "form-control" ,:readonly => true%>
         </p>
         <p>
-          <%= f.text_field :name  , :placeholder => "Name" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_field :name  , :placeholder => "Name" , :class => "form-control" , required: true , :onkeyup =>"caps(this)"%>
         </p>
         <p>
-           <%= f.text_field :dob  , :placeholder => "Date of Birth" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+           <%= f.text_field :dob  , :placeholder => "Date of Birth" , :class => "form-control" ,required: true ,  :onkeyup =>"caps(this)"%>
         </p>
           
         <p>
-          <%= f.text_field :location  , :placeholder => "Location" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_field :location  , :placeholder => "Location" , :class => "form-control" , required: true , :onkeyup =>"caps(this)"%>
          </p>
         <p>
-          <%= f.text_field :qualification  , :placeholder => "Qualification" , :class => "form-control" , :onkeyup =>"caps(this)" %>
+          <%= f.text_field :qualification  , :placeholder => "Qualification" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)" %>
         </p>
         <p>
-          <%= f.text_field :college  , :placeholder => "College" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_field :college  , :placeholder => "College" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)"%>
         </p>
          <p>
-          <%= f.text_field :organization  , :placeholder => "Organization" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_field :organization  , :placeholder => "Organization" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)"%>
          </p>
          <p>
-          <%= f.text_field :department  , :placeholder => "Department" , :class => "form-control", :onkeyup =>"caps(this)" %>
+          <%= f.text_field :department  , :placeholder => "Department" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)" %>
          </p>
          <p>
-          <%= f.text_field :role  , :placeholder => "Role" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_field :role  , :placeholder => "Role" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)"%>
          </p>
          
         
@@ -59,12 +59,12 @@
       </div>
         
         <p>
-            <%= f.text_area :hobbies  , :placeholder => "Hobbies" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+            <%= f.text_area :hobbies  , :placeholder => "Hobbies" , :class => "form-control" , required: true , :onkeyup =>"caps(this)"%>
         </p>
      
         <p>
           
-          <%= f.text_area :about_yourself  , :placeholder => "About Yourself" , :class => "form-control" , :onkeyup =>"caps(this)"%>
+          <%= f.text_area :about_yourself  , :placeholder => "About Yourself" , :class => "form-control" ,required: true , :onkeyup =>"caps(this)"%>
         </p>
 
 

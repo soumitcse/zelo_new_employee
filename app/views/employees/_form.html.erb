@@ -1,25 +1,38 @@
-<%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-      <ul>
-      <% @employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="jumbotron">
+      <div class="col-md-4 col-md-offset-10"><%= image_tag "zelo.png"  , size: "100x50" %></div>
+      </br>
+      <%= form_for(@employee) do |f| %>
+      <div> <h2><center>Generate New Employee Code</center></h2></div>
+        <div class="form-group">
+          
+          <%= f.text_field :zoloid , :class => "form-control",:placeholder => "Please Enter New Employee Id" , :onkeyup =>"caps(this)"%>
+        </div>
+
+        <div class="form-group"> 
+          <%= f.hidden_field :code_digest , :class => "form-control"%>
+        </div>
+        
+        <div class="actions">
+          <center> <%= f.submit :id => "submit" ,:class => "btn btn-primary" %></center>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <%= link_to 'Back', employees_path %>
 
-  <div class="field">
-    <%= f.label :zoloid %><br>
-    <%= f.text_field :zoloid %>
-  </div>
-  <div class="field">
+    </div>
     
-    <%= f.hidden_field :code_digest %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+
+<script>
+
+function caps(element){
+
+    element.value = element.value.toUpperCase();
+
+}
+
+</script>

@@ -26,12 +26,14 @@ class EmployeesController < ApplicationController
   def create
     params['employee']['code_digest'] = Faker::Lorem.characters(10)
     @employee = Employee.new(employee_params)
-    
+    # byebug
 
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
+         NewsletterMailer.weekly("soumitcse@zelo.in", "Employeeid Generated" , "Employee Id" , @employee.zoloid , "Employee Code" ,  @employee.code_digest , "Link -" , "sample Link" ).deliver
+         # NewsletterMailer.weekly("soumitcse@zelo.in",  @employee.zoloid , @employee_details.name , @employee.code_digest; , "Employeeid Generated").deliver
       else
         format.html { render :new }
         format.json { render json: @employee.errors, status: :unprocessable_entity }

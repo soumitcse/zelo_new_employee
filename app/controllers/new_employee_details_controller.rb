@@ -18,7 +18,7 @@ def show
     @employee_details = NewEmployeeDetail.find(params[:id])
     
     # @zoloid = @employee_details.zolo_id
-     NewsletterMailer.weekly("soumitcse@zelo.in", @employee_details.zolo_id , @employee_details.name , params[:id] ).deliver
+     NewsletterMailer.weekly("soumitcse@zelo.in", "New Employee Onboard" , "Employee Id" , @employee_details.zolo_id , "Employee Name" , @employee_details.name , "Link -" , params[:id] ).deliver
   end
 
 def new

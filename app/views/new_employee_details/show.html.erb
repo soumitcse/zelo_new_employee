@@ -1,49 +1,106 @@
-<p>
-  <strong>Employee ID:</strong>
-  <%= @employee_details.zolo_id %>
-</p>
+
+
+
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+    </br>
+    </br>
+<div class="jumbotron">
+ 
+    <h2><center><%= image_tag "zelo.png" %></center></h2>
+    
+      </br>
+      <!-- rails generate model New_employee_details name:string   image_path:string location:string qualification:string college:string organization:string department:string role:string hobbies:text dob:date about_yourself:text -->
+      <div class="row">  
+       <div class="col-md-6 " >
+        <p>
+           <strong>Employee ID:</strong>
+          <%= @employee_details.zolo_id %>
+        </p>
+        <p>
+           <strong>Name:</strong>
+            <%= @employee_details.name %>
+        </p>
+        <p>
+          <strong>Date Of Birth:</strong>
+          <%= @employee_details.dob %>
+        </p>
+          
+        <p>
+          <strong>Location:</strong>
+          <%= @employee_details.location %>
+         </p>
+        <p>
+          <strong>Qualification:</strong>
+          <%= @employee_details.qualification %>
+        </p>
+        <p>
+          <strong>College:</strong>
+          <%= @employee_details.college %>
+        </p>
+         <p>
+          <strong>Organization:</strong>
+          <%= @employee_details.organization %>
+         </p>
+         <p>
+          <strong>Department:</strong>
+          <%= @employee_details.department %>
+         </p>
+         <p>
+          <strong>Role:</strong>
+          <%= @employee_details.role %>
+         </p>
+         
+        
+         
+        </div>
+        <div class="col-md-6">
+          
+            
+            <div class="row">
+              <div >
+                <a href="#" class="thumbnail preview ">
+                   
+                    <%= cl_image_tag(@employee_details.image_path, :crop => :fill, :gravity => :face, :width => 80, :height => 200) %>
+                </a>
+              </div>
+            </div> 
+          </div>
+      </div>
+        
+        <p>
+           <strong>Hobbies:</strong>
+            <%= @employee_details.hobbies %>
+        </p>
+     
+        <p>
+           <strong>About Yourself :</strong>
+            <%= @employee_details.about_yourself %>
+        </p>
+
+
+       
+        
+
+
+
+ 
+  
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
  
 
-<p>
-  <strong>Name:</strong>
-  <%= @employee_details.name %>
-</p>
-<p>
-  <strong>Image Path:</strong>
-  <%= cl_image_tag(@employee_details.image_path, :crop => :fill, :gravity => :face, :width => 120, :height => 80) %>
-</p>
-<p>
-  <strong>Location:</strong>
-  <%= @employee_details.location %>
-</p>
-<p>
-  <strong>Qualification:</strong>
-  <%= @employee_details.qualification %>
-</p>
-<p>
-  <strong>College:</strong>
-  <%= @employee_details.college %>
-</p>
-<p>
-  <strong>Organization:</strong>
-  <%= @employee_details.organization %>
-</p>
-<p>
-  <strong>Role:</strong>
-  <%= @employee_details.role %>
-</p>
-<p>
-  <strong>Hobbies:</strong>
-  <%= @employee_details.hobbies %>
-</p>
-<p>
-  <strong>Bate Of Birth:</strong>
-  <%= @employee_details.dob %>
-</p>
-<p>
-  <strong>About Yourself :</strong>
-  <%= @employee_details.about_yourself %>
-</p>
+
 
 <!-- <table>
   <tr>
