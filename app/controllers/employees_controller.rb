@@ -31,8 +31,7 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        # Deleating the code record of the employee
-         Employee.where(zoloid: @employee_details.zolo_id).destroy_all
+        
         
         format.json { render :show, status: :created, location: @employee }
          NewsletterMailer.weekly("soumitcse@zelo.in", "Employeeid Generated" , "Employee Id" , @employee.zoloid , "Employee Code" ,  @employee.code_digest , "Link -" , "sample Link" ).deliver

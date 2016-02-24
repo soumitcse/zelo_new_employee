@@ -18,7 +18,7 @@ def show
     @employee_details = NewEmployeeDetail.find(params[:id])
     
     # @zoloid = @employee_details.zolo_id
-     NewsletterMailer.weekly("soumitcse@zelo.in", "New Employee Onboard" , "Employee Id" , @employee_details.zolo_id , "Employee Name" , @employee_details.name , "Link -" , params[:id] ).deliver
+    
   end
 
 def new
@@ -28,11 +28,14 @@ def new
 
 
 def create
-  byebug
+  
 	 @employee_details = NewEmployeeDetail.new(new_employee_details_params)  
 
+if Employee.where(zoloid: @employee_details.zolo_id).present?
+  
+
   if @employee_details[:image_path].present?
-      preloaded = Cloudinary::PreloadedFile.new(@employee_details[:image_path])         
+      preloaded = Cloudinary::PreloadedFile.new(@employee_details[:image_path])        
       raise "Invalid upload signature" if !preloaded.valid?
       @employee_details.image_path = preloaded.identifier
   end
@@ -40,10 +43,13 @@ def create
 # @employee_details = NewEmployeeDetail.new(new_employee_details_params)	
  
   @employee_details.save
+# Deleating the code record of the employee
+  Employee.where(zoloid: @employee_details.zolo_id).destroy_all
+  NewsletterMailer.weekly("soumitcse@zelo.in", "New Employee Onboard" , "Employee Id" , @employee_details.zolo_id , "Employee Name" , @employee_details.name , "Link -" , params[:id] ).deliver
 
- 
-
-   redirect_to @employee_details
+  redirect_to @employee_details
+end
+   
 
 
   end
