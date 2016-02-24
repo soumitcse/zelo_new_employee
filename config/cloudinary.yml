@@ -6,9 +6,9 @@ development:
   enhance_image_tag: true
   static_image_support: false
 production:
-  cloud_name: dv8bz6h0u
-  api_key: 371135421564293
-  api_secret: 0HL9dlcSY4lUVMJ_I3uoKqrqSU4
+  cloud_name: hazaikile
+  api_key: 466138641521459
+  api_secret: 3wFBlp8B7mkc29xVIJ3Voomg2AA
   enhance_image_tag: true
   static_image_support: true
 test:
