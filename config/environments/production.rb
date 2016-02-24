@@ -90,6 +90,6 @@ Rails.application.configure do
     enable_starttls_auto: true,
     user_name: "soumitcse",
     password: "sqb24889"
-
+}
 
 end
