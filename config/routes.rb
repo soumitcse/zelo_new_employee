@@ -17,10 +17,11 @@ Rails.application.routes.draw do
 
   controller :sessions do
     get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+    post 'login' => :create 
+    delete 'logout' => :destroy 
   end
 
+get 'logout' => 'sessions#destroy'
 
 get 'authenticate_employee' => 'new_employee_details#authemployees' , as: :authemployees
   # get 'new_employee_details/show/:id' => 'new_employee_details#show', as: 'show'

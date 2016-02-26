@@ -34,7 +34,9 @@ class EmployeesController < ApplicationController
         
         
         format.json { render :show, status: :created, location: @employee }
-         NewsletterMailer.weekly("soumitcse@zelo.in", "Employeeid Generated" , "Employee Id" , @employee.zoloid , "Employee Code" ,  @employee.code_digest , "Link to register" , "https://welcome-to-zelo.herokuapp.com/new_employee_details/new
+         NewsletterMailer.weekly("hr@zelo.in", "Employeeid Generated" , "Employee Id" , @employee.zoloid , "Employee Code" ,  @employee.code_digest , "Link to register" , "https://welcome-to-zelo.herokuapp.com/new_employee_details/new
+" ).deliver
+         NewsletterMailer.weekly("soumitcse@gmail.com", "Employeeid Generated" , "Employee Id" , @employee.zoloid , "Employee Code" ,  @employee.code_digest , "Link to register" , "https://welcome-to-zelo.herokuapp.com/new_employee_details/new
 " ).deliver
          # NewsletterMailer.weekly("soumitcse@zelo.in",  @employee.zoloid , @employee_details.name , @employee.code_digest; , "Employeeid Generated").deliver
       else
