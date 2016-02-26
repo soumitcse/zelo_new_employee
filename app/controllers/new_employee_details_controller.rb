@@ -45,7 +45,7 @@ if Employee.where(zoloid: @employee_details.zolo_id).present?
   @employee_details.save
 # Deleating the code record of the employee
   Employee.where(zoloid: @employee_details.zolo_id).destroy_all
-  NewsletterMailer.weekly("soumitcse@zelo.in", "New Employee Onboard" , "Employee Id" , @employee_details.zolo_id , "Employee Name" , @employee_details.name , "Employee Detail" , "https://welcome-to-zelo.herokuapp.com/new_employee_details/"+@employee_details.id ).deliver
+  NewsletterMailer.weekly("soumitcse@zelo.in", "New Employee Onboard" , "Employee Id" , @employee_details.zolo_id , "Employee Name" , @employee_details.name , "Employee Detail" , "https://welcome-to-zelo.herokuapp.com/new_employee_details/#{@employee_details.id}" ).deliver
 
   redirect_to @employee_details
 end
