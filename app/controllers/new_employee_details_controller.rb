@@ -41,7 +41,7 @@ if Employee.where(zoloid: @employee_details.zolo_id).present?
   end
   
 # @employee_details = NewEmployeeDetail.new(new_employee_details_params)	
- byebug
+ # byebug
   @employee_details.save
 # Deleating the code record of the employee
   Employee.where(zoloid: @employee_details.zolo_id).destroy_all
